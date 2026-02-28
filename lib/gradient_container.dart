@@ -21,8 +21,11 @@ class GradientContainer extends StatelessWidget {
           end: endAlignment,
         ),
       ),
-      child: const Center(
-        child: StyledText('Hello Helmut!'), // Use the StyledText widget to display text in the center
+      child: Center(
+        child: Image.asset(
+          'assets/images/dice-2.png', 
+          width: 200,
+        ), // Display the dice image in the center
       ),
     );
   }
