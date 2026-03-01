@@ -1,4 +1,7 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
+
+final randomizer = Random(); // Create a Random object to generate random numbers for dice rolls
 
 class DiceRoller extends StatefulWidget {
   const DiceRoller({super.key});
@@ -10,11 +13,11 @@ class DiceRoller extends StatefulWidget {
 }
 
 class _DiceRollerState extends State<DiceRoller> {
-  var activeDiceImage = 'assets/images/dice-2.png'; // Variable to hold the active dice image
+  var currentDiceRoll = 2;
   
   void rollDice() {
     setState(() {
-      activeDiceImage = 'assets/images/dice-4.png';
+      currentDiceRoll = randomizer.nextInt(6) + 1; // Generate a random number between 1 and 6 for the dice roll
     });
   }
   
@@ -24,7 +27,7 @@ class _DiceRollerState extends State<DiceRoller> {
       mainAxisSize: MainAxisSize.min, // Center the column vertically
       children: [
         Image.asset(
-          activeDiceImage, 
+          'assets/images/dice-$currentDiceRoll.png',
           width: 200),
         const SizedBox(
           height: 20,
